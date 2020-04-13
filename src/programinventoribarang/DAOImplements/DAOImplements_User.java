@@ -32,7 +32,7 @@ public class DAOImplements_User implements DAO_User{
         List<Model_User> list = null;
         
         try {
-            String query = "SELECT * FROM user ORDER BY id ASC";
+            String query = "SELECT * FROM user ORDER BY kode_user ASC";
             
             list = new ArrayList<Model_User>();
             
@@ -41,7 +41,6 @@ public class DAOImplements_User implements DAO_User{
             
             while(rst.next()){
                 Model_User m = new Model_User();
-                m.setId(rst.getString("id"));
                 m.setKode_user(rst.getString("kode_user"));
                 m.setNama_user(rst.getString("nama_user"));
                 m.setPassword(rst.getString("password"));
@@ -73,7 +72,6 @@ public class DAOImplements_User implements DAO_User{
             
             while(rst.next()){
                 Model_User m = new Model_User();
-                m.setId(rst.getString("id"));
                 m.setKode_user(rst.getString("kode_user"));
                 m.setNama_user(rst.getString("nama_user"));
                 m.setPassword(rst.getString("password"));
@@ -119,7 +117,6 @@ public class DAOImplements_User implements DAO_User{
     public void update(Model_User data) {
         koneksi = dbUtilities.config();
         
-        String id = data.getId();
         String kode = data.getKode_user();
         String uname = data.getNama_user();
         String pass = data.getPassword();
@@ -128,16 +125,15 @@ public class DAOImplements_User implements DAO_User{
         String no_telepon = data.getNo_telepon();
         
         try {
-            String query = "UPDATE user SET kode_user=?,nama_user=?,password=?,nama_lengkap=?,level=?,no_telepon=? WHERE `id`=?";
+            String query = "UPDATE user SET nama_user=?,password=MD5(?),nama_lengkap=?,level=?,no_telepon=? WHERE `kode_user`=?";
             
             PreparedStatement sta = koneksi.prepareStatement(query);
-                sta.setString(1, kode);
-                sta.setString(2, uname);
-                sta.setString(3, pass);
-                sta.setString(4, nama);
-                sta.setString(5, level);
-                sta.setString(6, no_telepon);
-                sta.setString(0, id);
+                sta.setString(1, uname);
+                sta.setString(2, pass);
+                sta.setString(3, nama);
+                sta.setString(4, level);
+                sta.setString(5, no_telepon);
+                sta.setString(6, kode);
                 sta.executeUpdate(); 
             sta.close();
         } catch (Exception e) {
@@ -150,7 +146,7 @@ public class DAOImplements_User implements DAO_User{
         koneksi = dbUtilities.config();
         
         try {
-            String query = "DELETE FROM user WHERE id="+kode;
+            String query = "DELETE FROM user WHERE kode_user="+kode;
             PreparedStatement sta = koneksi.prepareStatement(query);
             
             sta.executeUpdate();

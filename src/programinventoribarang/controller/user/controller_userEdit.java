@@ -31,7 +31,6 @@ public class controller_userEdit {
     
     public void edit(jF_EditUser data){
         Model_User u = new Model_User();
-        u.setId(data.getLblID().getText());
         u.setKode_user(data.getTxtKodeUser().getText());
         u.setNama_user(data.getTxtNamaUser().getText());
         u.setPassword(data.getTxtPassword().getText().trim());

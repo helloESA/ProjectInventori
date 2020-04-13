@@ -56,14 +56,13 @@ public class JF_KelolaUser extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         tombolTambah = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableDataUser = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         tombolEdit = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         tombolHapus = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        tombolDetail = new javax.swing.JLabel();
         id = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -212,20 +211,22 @@ public class JF_KelolaUser extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableDataUser);
 
+        jScrollPane2.setViewportView(jScrollPane1);
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -285,30 +286,6 @@ public class JF_KelolaUser extends javax.swing.JFrame {
             .addComponent(tombolHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel9.setBackground(new java.awt.Color(251, 215, 65));
-
-        tombolDetail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        tombolDetail.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        tombolDetail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/more_details_40px.png"))); // NOI18N
-        tombolDetail.setText("Detail User");
-        tombolDetail.setEnabled(false);
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tombolDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addComponent(tombolDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
         id.setText("ID");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -322,8 +299,7 @@ public class JF_KelolaUser extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(id))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -345,9 +321,7 @@ public class JF_KelolaUser extends javax.swing.JFrame {
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                         .addComponent(id)))
                 .addContainerGap())
         );
@@ -417,21 +391,6 @@ public class JF_KelolaUser extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_tombolTambahMouseClicked
 
-    private void tableDataUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataUserMouseClicked
-        id.setText(tableDataUser.getValueAt(tableDataUser.getSelectedRow(), 0).toString());
-        tombolEdit.setEnabled(true);
-        tombolHapus.setEnabled(true);
-        tombolDetail.setEnabled(true);
-        int tableData = tableDataUser.getSelectedRow();
-        edit.id =           tableDataUser.getModel().getValueAt(tableData, 0).toString();
-        edit.kode =         tableDataUser.getModel().getValueAt(tableData, 1).toString();
-        edit.nama_user =    tableDataUser.getModel().getValueAt(tableData, 2).toString();
-        edit.nama_lengkap = tableDataUser.getModel().getValueAt(tableData, 3).toString();
-        edit.level =        tableDataUser.getModel().getValueAt(tableData, 4).toString();
-        edit.telepon =      tableDataUser.getModel().getValueAt(tableData, 5).toString();
-        edit.itemTerpilih();
-    }//GEN-LAST:event_tableDataUserMouseClicked
-
     private void tombolHapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tombolHapusMouseClicked
         if(tableDataUser.getSelectedRow()>=0){
             int dialog = JOptionPane.showConfirmDialog(this, "Yakin ingin menghapus data ini?","Konfirmasi", JOptionPane.WARNING_MESSAGE);
@@ -446,11 +405,25 @@ public class JF_KelolaUser extends javax.swing.JFrame {
     }//GEN-LAST:event_tombolHapusMouseClicked
 
     private void tombolEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tombolEditMouseClicked
-        jF_EditUser toEdit = new jF_EditUser();
-        toEdit.setVisible(true);
+        edit.setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_tombolEditMouseClicked
+
+    private void tableDataUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataUserMouseClicked
+        int tableData = tableDataUser.getSelectedRow();
+        edit = new jF_EditUser();
+        id.setText(tableDataUser.getValueAt(tableDataUser.getSelectedRow(), 0).toString());
+        tombolEdit.setEnabled(true);
+        tombolHapus.setEnabled(true);
+        edit.kode =         tableDataUser.getModel().getValueAt(tableData, 0).toString();
+        edit.nama_user =    tableDataUser.getModel().getValueAt(tableData, 1).toString();
+        edit.nama_lengkap = tableDataUser.getModel().getValueAt(tableData, 2).toString();
+        edit.level =        tableDataUser.getModel().getValueAt(tableData, 3).toString();
+        edit.telepon =      tableDataUser.getModel().getValueAt(tableData, 4).toString();
+        edit.password =     tableDataUser.getModel().getValueAt(tableData, 5).toString();
+        edit.itemTerpilih();
+    }//GEN-LAST:event_tableDataUserMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -465,13 +438,12 @@ public class JF_KelolaUser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelArea;
     private javax.swing.JLabel labelClose;
     private javax.swing.JLabel labelMinimize;
     private javax.swing.JTable tableDataUser;
-    private javax.swing.JLabel tombolDetail;
     private javax.swing.JLabel tombolEdit;
     private javax.swing.JLabel tombolHapus;
     private javax.swing.JLabel tombolTambah;

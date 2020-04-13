@@ -5,6 +5,8 @@
  */
 package programinventoribarang.view.barang;
 
+import javax.swing.JTable;
+import programinventoribarang.controller.barang.controller_barangList;
 import programinventoribarang.view.jF_MenuUtama;
 
 /**
@@ -14,9 +16,21 @@ import programinventoribarang.view.jF_MenuUtama;
 public class jF_KelolaBarang extends javax.swing.JFrame {
 
     int mouseX,mouseY;
+    controller_barangList barang;
+    
     public jF_KelolaBarang() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        barang = new controller_barangList(this);
+        barang.isiTable();
+        
     }
+
+    public JTable getTableDataBarang() {
+        return tableDataBarang;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,8 +54,9 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableDataBarang = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -172,6 +187,11 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/add_new_30px.png"))); // NOI18N
         jLabel13.setText("Tambah Barang");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -189,7 +209,7 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(35, 180, 165));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableDataBarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -200,22 +220,24 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableDataBarang);
+
+        jScrollPane2.setViewportView(jScrollPane1);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -389,6 +411,12 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoMousePressed
 
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        jF_InputBarang input = new jF_InputBarang();
+        input.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel13MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel12;
@@ -407,10 +435,11 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelArea;
     private javax.swing.JLabel labelClose;
     private javax.swing.JLabel labelMinimize;
     private javax.swing.JLabel logo;
+    private javax.swing.JTable tableDataBarang;
     // End of variables declaration//GEN-END:variables
 }

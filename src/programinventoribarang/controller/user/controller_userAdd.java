@@ -20,7 +20,6 @@ import programinventoribarang.view.user.jF_InputUser;
 public class controller_userAdd {
     jF_InputUser userFrame;
     DAO_User impl;
-    DAO_AutoNumber auto;
     List<Model_User> list;
     
     public controller_userAdd(jF_InputUser user){

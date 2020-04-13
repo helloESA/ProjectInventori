@@ -28,30 +28,30 @@ public class table_user extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 5;
     }
 
     @Override
     public String getColumnName(int col){
         switch(col){
-            case 0 : return "ID";
-            case 1 : return "KODE USER";
-            case 2 : return "NAMA USER";
-            case 3 : return "NAMA LENGKAP";
-            case 4 : return "LEVEL";
-            case 5 : return "NO TELEPON";
+            case 0 : return "KODE USER";
+            case 1 : return "NAMA USER";
+            case 2 : return "NAMA LENGKAP";
+            case 3 : return "LEVEL";
+            case 4 : return "NO TELEPON";
+            case 5 : return "PASSWORD";
             default : return null;
         }
     }
     @Override
     public Object getValueAt(int row, int col) {
         switch(col){
-            case 0 : return list.get(row).getId();
-            case 1 : return list.get(row).getKode_user();
-            case 2 : return list.get(row).getNama_user();
-            case 3 : return list.get(row).getNama_lengkap();
-            case 4 : return list.get(row).getLevel();
-            case 5 : return list.get(row).getNo_telepon();
+            case 0 : return list.get(row).getKode_user();
+            case 1 : return list.get(row).getNama_user();
+            case 2 : return list.get(row).getNama_lengkap();
+            case 3 : return list.get(row).getLevel();
+            case 4 : return list.get(row).getNo_telepon();
+            case 5 : return list.get(row).getPassword();
             default : return null;
         }
     }

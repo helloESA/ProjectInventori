@@ -10,8 +10,16 @@ package programinventoribarang.model;
  * @author MohamadEsa
  */
 public class Model_Barang {
-    String namaBarang, sku, merek, ukuran, satuan;
+    String kodeBarang, namaBarang, sku, merek, ukuran, satuan;
     int qty;
+
+    public String getKodeBarang() {
+        return kodeBarang;
+    }
+
+    public void setKodeBarang(String kodeBarang) {
+        this.kodeBarang = kodeBarang;
+    }
 
     public String getNamaBarang() {
         return namaBarang;

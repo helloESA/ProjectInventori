@@ -11,21 +11,12 @@ package programinventoribarang.model;
  */
 public class Model_User {
     
-    String id;
     String kode_user;
     String nama_user;
     String password;
     String nama_lengkap;
     String level;
     String no_telepon;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getKode_user() {
         return kode_user;
