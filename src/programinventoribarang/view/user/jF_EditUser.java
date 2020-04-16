@@ -170,6 +170,7 @@ public class jF_EditUser extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(142, 237, 193));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jPanel3.setBackground(new java.awt.Color(22, 109, 137));
 
@@ -180,6 +181,10 @@ public class jF_EditUser extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/cardboard_logo.png"))); // NOI18N
+        jLabel4.setText("Program Pengelolaan Gudang");
         jLabel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jLabel4MouseDragged(evt);
@@ -293,6 +298,11 @@ public class jF_EditUser extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton2.setText("HAPUS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 314, 150, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -339,8 +349,8 @@ public class jF_EditUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -419,6 +429,15 @@ public class jF_EditUser extends javax.swing.JFrame {
         icon2.setVisible(false);
         txtPassword.setEchoChar('*');
     }//GEN-LAST:event_icon2MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+       txtNamaLengkap.setText("");
+       txtNamaUser.setText("");
+       txtPassword.setText("");
+       txtTelepon.setText("");
+       cbLevel.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

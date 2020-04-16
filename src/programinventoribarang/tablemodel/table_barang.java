@@ -40,13 +40,12 @@ public class table_barang extends AbstractTableModel{
             case 3 : return "MEREK";
             case 4 : return "UKURAN";
             case 5 : return "SATUAN";
-            case 6 : return "QTY";
             default: return null;
         }
     }
 
     @Override
-    public Object getValueAt(int col, int row) {
+    public Object getValueAt(int row, int col) {
         switch(col){
             case 0 : return list.get(row).getKodeBarang();
             case 1 : return list.get(row).getNamaBarang();
@@ -54,7 +53,6 @@ public class table_barang extends AbstractTableModel{
             case 3 : return list.get(row).getMerek();
             case 4 : return list.get(row).getUkuran();
             case 5 : return list.get(row).getSatuan();
-            case 6 : return list.get(row).getQty();
             default: return null;
         }
     }

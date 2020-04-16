@@ -6,11 +6,9 @@
 package programinventoribarang.controller.user;
 
 import java.util.List;
-import programinventoribarang.DAO.DAO_AutoNumber;
 import programinventoribarang.DAO.DAO_User;
 import programinventoribarang.DAOImplements.DAOImplements_User;
 import programinventoribarang.model.Model_User;
-import programinventoribarang.tablemodel.table_user;
 import programinventoribarang.view.user.jF_InputUser;
 
 /**

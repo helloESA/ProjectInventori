@@ -8,6 +8,7 @@ package programinventoribarang.DAOImplements;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,7 @@ public class DAOImplements_User implements DAO_User{
                 m.setNo_telepon(rst.getString("no_telepon"));
                 list.add(m);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return list;
@@ -146,7 +147,7 @@ public class DAOImplements_User implements DAO_User{
         koneksi = dbUtilities.config();
         
         try {
-            String query = "DELETE FROM user WHERE kode_user="+kode;
+            String query = "DELETE FROM user WHERE kode_user='"+kode+"'";
             PreparedStatement sta = koneksi.prepareStatement(query);
             
             sta.executeUpdate();

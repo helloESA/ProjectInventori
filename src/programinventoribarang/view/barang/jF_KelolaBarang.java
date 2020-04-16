@@ -5,8 +5,10 @@
  */
 package programinventoribarang.view.barang;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import programinventoribarang.controller.barang.controller_barangList;
+import programinventoribarang.view.jD_Login;
 import programinventoribarang.view.jF_MenuUtama;
 
 /**
@@ -17,13 +19,13 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
 
     int mouseX,mouseY;
     controller_barangList barang;
-    
+    jF_EditBarang edit = null;
     public jF_KelolaBarang() {
         initComponents();
         this.setLocationRelativeTo(this);
         barang = new controller_barangList(this);
         barang.isiTable();
-        
+//        hidelAbel.setVisible(false);
     }
 
     public JTable getTableDataBarang() {
@@ -47,27 +49,30 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
         labelArea = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         labelMinimize = new javax.swing.JLabel();
-        logo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        labelTambah = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableDataBarang = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
+        labelEdit = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        labelHapus = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
+        labelDetail = new javax.swing.JLabel();
+        hidelAbel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(142, 237, 193));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jPanel3.setBackground(new java.awt.Color(22, 109, 137));
 
@@ -85,6 +90,11 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/cardboard_logo.png"))); // NOI18N
+        jLabel4.setText("Program Pengelolaan Gudang");
+        jLabel4.setToolTipText("");
         jLabel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jLabel4MouseDragged(evt);
@@ -103,29 +113,13 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
             }
         });
 
-        logo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        logo.setForeground(new java.awt.Color(255, 255, 255));
-        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/cardboard_logo.png"))); // NOI18N
-        logo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                logoMouseDragged(evt);
-            }
-        });
-        logo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                logoMousePressed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 823, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelMinimize)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -138,13 +132,11 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(labelClose, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                        .addComponent(labelArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelMinimize, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(labelClose, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(labelArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelMinimize, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(244, 243, 238));
@@ -169,7 +161,7 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -183,13 +175,13 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(251, 215, 65));
 
-        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/add_new_30px.png"))); // NOI18N
-        jLabel13.setText("Tambah Barang");
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelTambah.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelTambah.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/add_new_30px.png"))); // NOI18N
+        labelTambah.setText("Tambah Barang");
+        labelTambah.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel13MouseClicked(evt);
+                labelTambahMouseClicked(evt);
             }
         });
 
@@ -199,12 +191,12 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelTambah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(labelTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel8.setBackground(new java.awt.Color(35, 180, 165));
@@ -220,33 +212,58 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableDataBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDataBarangMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableDataBarang);
 
         jScrollPane2.setViewportView(jScrollPane1);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/search_25px.png"))); // NOI18N
+        jLabel1.setText("Search");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+            .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jPanel6.setBackground(new java.awt.Color(251, 215, 65));
 
-        jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/edit_30px.png"))); // NOI18N
-        jLabel14.setText("Edit Barang");
+        labelEdit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelEdit.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/edit_30px.png"))); // NOI18N
+        labelEdit.setText("Edit Barang");
+        labelEdit.setEnabled(false);
+        labelEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelEditMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -254,22 +271,28 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel7.setBackground(new java.awt.Color(251, 215, 65));
 
-        jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/erase_30px.png"))); // NOI18N
-        jLabel15.setText("Hapus Barang");
+        labelHapus.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelHapus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/erase_30px.png"))); // NOI18N
+        labelHapus.setText("Hapus Barang");
+        labelHapus.setEnabled(false);
+        labelHapus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelHapusMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -277,20 +300,21 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                .addComponent(labelHapus, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(labelHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel9.setBackground(new java.awt.Color(251, 215, 65));
 
-        jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/more_details_40px.png"))); // NOI18N
-        jLabel16.setText("Detail Barang");
+        labelDetail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        labelDetail.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelDetail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/more_details_40px.png"))); // NOI18N
+        labelDetail.setText("Detail Barang");
+        labelDetail.setEnabled(false);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -298,15 +322,17 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        hidelAbel.setText("ID");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -315,11 +341,13 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(hidelAbel))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -342,7 +370,9 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 213, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(hidelAbel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -362,7 +392,14 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
 
     private void labelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCloseMouseClicked
         labelClose.setToolTipText("Keluar Aplikasi");
-        System.exit(0);
+        
+        if (JOptionPane.showConfirmDialog(null, "Apakah Anda Yakin Ingin Keluar?",
+                    "Konfirmasi", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                
+                System.exit(0);
+        }
+        
+        
     }//GEN-LAST:event_labelCloseMouseClicked
 
     private void labelAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAreaMouseClicked
@@ -403,27 +440,53 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
         back.setLocationRelativeTo(null);
     }//GEN-LAST:event_jLabel12MouseClicked
 
-    private void logoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoMouseDragged
-
-    private void logoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoMousePressed
-
-    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+    private void labelTambahMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTambahMouseClicked
         jF_InputBarang input = new jF_InputBarang();
         input.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jLabel13MouseClicked
+    }//GEN-LAST:event_labelTambahMouseClicked
+
+    private void labelEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelEditMouseClicked
+       edit.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_labelEditMouseClicked
+
+    private void tableDataBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataBarangMouseClicked
+        int tabelData = tableDataBarang.getSelectedRow();
+        edit = new jF_EditBarang();
+        hidelAbel.setText(tableDataBarang.getValueAt(tableDataBarang.getSelectedRow(), 0).toString());
+        
+        labelEdit.setEnabled(true);
+        labelHapus.setEnabled(true);
+        labelDetail.setEnabled(true);
+        
+        edit.kode =     tableDataBarang.getModel().getValueAt(tabelData, 0).toString();
+        edit.nama =     tableDataBarang.getModel().getValueAt(tabelData, 1).toString();
+        edit.sku =      tableDataBarang.getModel().getValueAt(tabelData, 2).toString();
+        edit.merek =    tableDataBarang.getModel().getValueAt(tabelData, 3).toString();
+        edit.ukuran =   tableDataBarang.getModel().getValueAt(tabelData, 4).toString();
+        edit.satuan =   tableDataBarang.getModel().getValueAt(tabelData, 5).toString();
+        edit.itemTerpilih();
+    }//GEN-LAST:event_tableDataBarangMouseClicked
+
+    private void labelHapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHapusMouseClicked
+        if(tableDataBarang.getSelectedRow()>=0){
+            int dialog = JOptionPane.showConfirmDialog(this, "Yakin ingin menghapus data ini?","Konfirmasi", JOptionPane.WARNING_MESSAGE);
+            if(dialog == JOptionPane.YES_OPTION){
+                String kode = hidelAbel.getText();
+                barang.delete(kode);
+                barang.isiTable();
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Pilih Data yang akan Dihapus","Peringatan",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_labelHapusMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel hidelAbel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
@@ -436,10 +499,14 @@ public class jF_KelolaBarang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelArea;
     private javax.swing.JLabel labelClose;
+    private javax.swing.JLabel labelDetail;
+    private javax.swing.JLabel labelEdit;
+    private javax.swing.JLabel labelHapus;
     private javax.swing.JLabel labelMinimize;
-    private javax.swing.JLabel logo;
+    private javax.swing.JLabel labelTambah;
     private javax.swing.JTable tableDataBarang;
     // End of variables declaration//GEN-END:variables
 }

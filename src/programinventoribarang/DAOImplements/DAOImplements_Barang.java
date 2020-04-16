@@ -32,7 +32,7 @@ public class DAOImplements_Barang implements DAO_Barang{
         
         List<Model_Barang> list = null;
         try {
-            String SQL = "SELECT * FROM `barang` ORDER BY kodeBarang ASC";
+            String SQL = "SELECT * FROM `barang` ORDER BY kode_barang";
             list = new ArrayList<Model_Barang>();
             
             Statement sta = koneksi.createStatement();
@@ -40,16 +40,16 @@ public class DAOImplements_Barang implements DAO_Barang{
             
             while(res.next()){
                 Model_Barang m = new Model_Barang();
-                m.setKodeBarang(res.getString("kodeBarang"));
-                m.setNamaBarang(res.getString("namaBarang"));
+                m.setKodeBarang(res.getString("kode_barang"));
+                m.setNamaBarang(res.getString("nama_barang"));
                 m.setSku(res.getString("sku_id"));
                 m.setMerek(res.getString("merek"));
                 m.setUkuran(res.getString("ukuran"));
                 m.setSatuan(res.getString("satuan"));
                 list.add(m);
             }
-        } catch (SQLException e) {
-            System.err.println(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -61,7 +61,7 @@ public class DAOImplements_Barang implements DAO_Barang{
         List<Model_Barang> list = null;
         
         try {
-            String SQL = "SELECT * FROM `barang` WHERE kodeBarang= "+kode;
+            String SQL = "SELECT * FROM `barang` WHERE kode_barang= "+kode;
             list = new ArrayList<Model_Barang>();
             
             Statement sta = koneksi.createStatement();
@@ -69,8 +69,8 @@ public class DAOImplements_Barang implements DAO_Barang{
             
             while(res.next()){
                 Model_Barang m = new Model_Barang();
-                m.setKodeBarang(res.getString("kodeBarang"));
-                m.setNamaBarang(res.getString("namaBarang"));
+                m.setKodeBarang(res.getString("kode_barang"));
+                m.setNamaBarang(res.getString("nama_barang"));
                 m.setSku(res.getString("sku_id"));
                 m.setMerek(res.getString("merek"));
                 m.setUkuran(res.getString("ukuran"));
@@ -93,10 +93,9 @@ public class DAOImplements_Barang implements DAO_Barang{
         String merek = data.getMerek();
         String ukuran = data.getUkuran();
         String satuan = data.getSatuan();
-        int qty = data.getQty();
         
         try {
-            String SQL = "INSERT INTO `barang`(`kodeBarang`, `namaBarang`, `sku_id`, `merek`, `ukuran`, `satuan`) VALUES ([?,?,?,?,?,?])";
+            String SQL = "INSERT INTO `barang`(`kode_barang`, `nama_barang`, `sku_id`, `merek`, `ukuran`, `satuan`) VALUES (?,?,?,?,?,?)";
             PreparedStatement stat = koneksi.prepareStatement(SQL);
             
             stat.setString(1, kode);
@@ -123,10 +122,9 @@ public class DAOImplements_Barang implements DAO_Barang{
         String merek = data.getMerek();
         String ukuran = data.getUkuran();
         String satuan = data.getSatuan();
-        int qty = data.getQty();
         
         try {
-            String SQL = "UPDATE `barang` SET `namaBarang`=?,`sku_id`=?,`merek`=?,`ukuran`=?,`satuan`=? WHERE `kodeBarang`=?"; 
+            String SQL = "UPDATE `barang` SET `nama_barang`=?,`sku_id`=?,`merek`=?,`ukuran`=?,`satuan`=? WHERE `kode_barang`=?"; 
             
             PreparedStatement stat = koneksi.prepareStatement(SQL);
             
@@ -147,14 +145,14 @@ public class DAOImplements_Barang implements DAO_Barang{
     @Override
     public void delete(String kode) {
         koneksi = dbUtilities.config();
-        
+        System.out.println(kode);
         try {
-            String SQL = "DELETE FROM `barang` WHERE WHERE kodeBarang= "+kode;
+            String SQL = "DELETE FROM barang WHERE kode_barang='"+kode+"'";
             PreparedStatement stat = koneksi.prepareStatement(SQL);
             stat.executeUpdate();
             stat.close();
-        } catch (SQLException e) {
-            System.err.println(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

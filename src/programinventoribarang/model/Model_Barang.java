@@ -11,7 +11,6 @@ package programinventoribarang.model;
  */
 public class Model_Barang {
     String kodeBarang, namaBarang, sku, merek, ukuran, satuan;
-    int qty;
 
     public String getKodeBarang() {
         return kodeBarang;
@@ -61,13 +60,4 @@ public class Model_Barang {
         this.satuan = satuan;
     }
 
-    public int getQty() {
-        return qty;
-    }
-
-    public void setQty(int qty) {
-        this.qty = qty;
-    }
-
-    
 }

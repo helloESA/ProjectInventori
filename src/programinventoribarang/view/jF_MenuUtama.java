@@ -20,8 +20,6 @@ public class jF_MenuUtama extends javax.swing.JFrame {
     public jF_MenuUtama() {
         initComponents();
         this.setLocationRelativeTo(null);
-        labelTitle.setText("Program Pengelolaan Gudang - Beta Version");
-        labelTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/cardboard_logo.png")));
     }
 
     /**
@@ -61,6 +59,7 @@ public class jF_MenuUtama extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(142, 237, 193));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jPanel3.setBackground(new java.awt.Color(22, 109, 137));
 
@@ -78,8 +77,10 @@ public class jF_MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        labelTitle.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        labelTitle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(255, 255, 255));
+        labelTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/cardboard_logo.png"))); // NOI18N
+        labelTitle.setText("Program Pengelolaan Gudang");
         labelTitle.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 labelTitleMouseDragged(evt);
@@ -330,7 +331,7 @@ public class jF_MenuUtama extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -359,7 +360,7 @@ public class jF_MenuUtama extends javax.swing.JFrame {
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -377,8 +378,13 @@ public class jF_MenuUtama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCloseMouseClicked
-        labelClose.setToolTipText("Keluar Aplikasi");
-        System.exit(0);
+       labelClose.setToolTipText("Keluar Aplikasi");
+        
+        if (JOptionPane.showConfirmDialog(null, "Apakah Anda Yakin Ingin Keluar?",
+                    "Konfirmasi", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                
+                System.exit(0);
+        }
     }//GEN-LAST:event_labelCloseMouseClicked
 
     private void labelLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogOutMouseClicked
@@ -426,10 +432,10 @@ public class jF_MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_labelTitle1MousePressed
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        JF_KelolaUser form3 = new JF_KelolaUser();
+        jD_MasterData form3 = new jD_MasterData(this, true);
         form3.setVisible(true);
-        this.dispose();
         form3.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_jLabel13MouseClicked
 
     

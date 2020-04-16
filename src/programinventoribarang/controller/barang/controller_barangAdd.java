@@ -6,7 +6,6 @@
 package programinventoribarang.controller.barang;
 
 import java.util.List;
-import programinventoribarang.DAO.DAO_AutoNumber;
 import programinventoribarang.DAO.DAO_Barang;
 import programinventoribarang.DAOImplements.DAOImplements_Barang;
 import programinventoribarang.model.Model_Barang;

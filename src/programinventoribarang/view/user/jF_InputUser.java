@@ -121,6 +121,7 @@ public class jF_InputUser extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(142, 237, 193));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jPanel3.setBackground(new java.awt.Color(22, 109, 137));
 
@@ -131,6 +132,10 @@ public class jF_InputUser extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/programinventoribarang/assets/cardboard_logo.png"))); // NOI18N
+        jLabel4.setText("Program Pengelolaan Gudang");
         jLabel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jLabel4MouseDragged(evt);
@@ -382,7 +387,12 @@ public class jF_InputUser extends javax.swing.JFrame {
     }//GEN-LAST:event_icon2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       autoNumber();
+       txtNamaLengkap.setText("");
+       txtNamaUser.setText("");
+       txtPassword.setText("");
+       txtTelepon.setText("");
+       cbLevel.setSelectedIndex(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

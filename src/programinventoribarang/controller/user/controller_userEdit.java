@@ -6,13 +6,10 @@
 package programinventoribarang.controller.user;
 
 import java.util.List;
-import programinventoribarang.DAO.DAO_AutoNumber;
 import programinventoribarang.DAO.DAO_User;
 import programinventoribarang.DAOImplements.DAOImplements_User;
 import programinventoribarang.model.Model_User;
-import programinventoribarang.tablemodel.table_user;
 import programinventoribarang.view.user.jF_EditUser;
-import programinventoribarang.view.user.jF_InputUser;
 
 /**
  *
@@ -21,7 +18,6 @@ import programinventoribarang.view.user.jF_InputUser;
 public class controller_userEdit {
     jF_EditUser userFrame;
     DAO_User impl;
-    DAO_AutoNumber auto;
     List<Model_User> list;
     
     public controller_userEdit(jF_EditUser user){
